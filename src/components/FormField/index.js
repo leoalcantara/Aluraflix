@@ -56,6 +56,7 @@ const Input = styled.input`
   &:focus {
     border-bottom-color: var(--primary);
   }
+
   &:focus:not([type='color']) + ${Label.Text} {
     transform: scale(.6) translateY(-10px);
   }
@@ -79,8 +80,7 @@ function FormField({ label, type, name, value, onChange}) {
     <FormFieldWrapper>
         <label
           htmlFor={fieldId}
-        >
-        {label}
+        >          
           <Input   
             as = {tag}  
             id = {fieldId}       
@@ -88,7 +88,10 @@ function FormField({ label, type, name, value, onChange}) {
             name = {name}
             value = {value}
             onChange = {onChange}
-          />            
+          />
+          <Label.Text>
+              {label}
+          </Label.Text>            
         </label>
     </FormFieldWrapper>  
   );

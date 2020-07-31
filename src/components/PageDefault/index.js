@@ -12,8 +12,6 @@ const Main = styled.main`
   padding-left: 5%;
 `;
 
-
-
 function PageDefault({ children }) {
   return (
       <>
