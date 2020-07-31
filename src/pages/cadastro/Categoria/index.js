@@ -3,12 +3,13 @@ import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
 
 import FormField from '../../../components/FormField';
+import Button from '../../../components/Button';
 
 function CadastroCategoria (){
   const valoresIniciais = {
     nome:'',
     descricao:'',
-    cor:'#f00'
+    cor:''
   }
 
   const [ categorias, setCategorias] = useState([]);  
@@ -29,7 +30,7 @@ function CadastroCategoria (){
   }
 
   return(
-    <PageDefault>
+    <PageDefault>      
       <h1>Cadastro de Categorias: {values.nome}</h1>
 
       <form onSubmit={function HandleSubmit(infosDoEvento){
@@ -52,7 +53,7 @@ function CadastroCategoria (){
 
       <FormField 
         label= "Descricao"
-        type="TextField"
+        type="textarea"
         name="descricao"
         value={values.descricao}
         onChange = {HandleChange}
@@ -90,9 +91,9 @@ function CadastroCategoria (){
         </label>       
       </div>  */}
 
-        <button>
+        <Button>
           Cadastrar
-        </button>
+        </Button>
       </form>
 
       <ul>
@@ -107,7 +108,7 @@ function CadastroCategoria (){
 
       <Link to="/">
         Voltar para Home
-      </Link>
+      </Link>     
     </PageDefault>
   );
   }
