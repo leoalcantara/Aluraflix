@@ -5,15 +5,14 @@
             "nome": "Front End",
             "descricao": "Uma categoria show",
             "cor": "#CBD1FF"    
-        }
-    ] , 
-    
-    "categorias": [
+        },
+
         {
-            "id": 1,
+            "id": 2,
             "nome": "Back End",
             "descricao": "Uma outra categoria show",
-            "cor": "#CBD1FF"    
+            "cor": "#CBD15F"    
         }
     ] 
 }
+    

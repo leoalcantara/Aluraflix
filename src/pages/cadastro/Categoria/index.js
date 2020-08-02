@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
 
@@ -28,6 +28,37 @@ function CadastroCategoria (){
       infosDoEvento.target.value
     );
   }
+
+  useEffect(()=>{
+    console.log('alo alo w Brasil');
+    const URL_TOP = 'http://localhost:8080/categorias';
+
+    fetch(URL_TOP)
+      .then(async (respostaDoServidor)=>{
+        const resposta = await respostaDoServidor.json();
+        setCategorias([
+          ...resposta,          
+        ]);
+      });
+    // setTimeout(()=>{
+    //   setCategorias([
+    //     ...categorias,
+    //     {
+    //       "id": 1,
+    //       "nome": "Front End",
+    //       "descricao": "Uma categoria show",
+    //       "cor": "#CBD1FF"    
+    //     },
+
+    //     {
+    //       "id": 2,
+    //       "nome": "Back End",
+    //       "descricao": "Uma outra categoria show",
+    //       "cor": "#CBD15F"    
+    //     },
+    //   ]);     
+    // }, 4 * 1000);
+},[]);
 
   return(
     <PageDefault>      
@@ -65,36 +96,17 @@ function CadastroCategoria (){
         name="cor"
         value={values.cor}
         onChange = {HandleChange}
-      />     
+      />   
 
-      {/* <div>        
-        <label>
-          Descrição:
-          <textarea 
-            type="text" 
-            name= "descricao"
-            value={ values.descricao }
-            onChange = {HandleChange}
-          />         
-        </label>
-      </div>
-
-      <div>   
-          <label>
-          Cor:
-          <input 
-            type="color" 
-            name= "cor"
-            value={ values.cor }
-            onChange = {HandleChange}
-          />            
-        </label>       
-      </div>  */}
 
         <Button>
           Cadastrar
         </Button>
       </form>
+ 
+      {categorias.length === 0 && (<div>
+        Loading...
+      </div>)}
 
       <ul>
         {categorias.map((categoria, indice)=>{
